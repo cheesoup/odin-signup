@@ -1,0 +1,86 @@
+@font-face {
+	font-family: "Norse Bold"; /* set name */
+	src: url("webfont/Norsebold.woff2"); /* url of the font */
+}
+
+:root {
+	--splash-width: 33vw;
+	font-size: 16px;
+	font-family: serif;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+}
+
+body > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+div.splash {
+	flex: 0 0 auto;
+	width: var(--splash-width);
+	background-size: max(var(--splash-width), 100vmax);
+	background-position: center;
+	background-image: url("img/splash.jpg");
+	color: #FFF;
+}
+
+div.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Norse Bold";
+	font-size: calc(1.5rem + 5vw);
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	padding: 10px 0;
+	margin: 25vh 0;
+}
+
+div.logo > img {
+	height: 1.25lh;
+	width: auto;
+}
+
+div.credits {
+	margin: 1lh;
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+div.content {
+	gap: 40px;
+	padding: 40px;
+	background-color: #F9FAFB;
+}
+
+div.content > div {
+	height: 100%;
+}
+
+div.flavor {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	font-size: 1.5rem;
+}
+
+div.flavor > p {
+	margin-bottom: 1.5lh;
+}
+
+div.form {
+	background-color: #FFF;
+}
