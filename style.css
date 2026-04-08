@@ -16,83 +16,93 @@
 	box-sizing: border-box;
 }
 
-body {
-	display: flex;
-	height: 100vh;
+a {
+	color: inherit
 }
 
-.alignCenter {
+.justify-center {
 	display: flex;
 	justify-content: center;
 }
 
-body > div {
+.justify-space {
+	justify-content: space-between;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+	background-size: 33vw;
+	background-position: center;
+	background-image: url("img/background.jpg");
+}
+
+body > * {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-div.splash {
+aside {
 	flex: 0 0 auto;
 	width: var(--splash-width);
-
 	color: #FFF;
-	background-size: max(var(--splash-width), 100vmax);
-	background-position: center;
-	background-image: url("img/splash.jpg");
 }
 
-div.logo {
+aside > header {
 	width: 100%;
-	padding: 10px 0;
-	margin: 25vh 0;
+	padding: 40px 0;
+	margin: 7vh 0;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: #010000;
 	font-family: "Norse Bold";
 	font-size: calc(1.5rem + 5vw);
 }
 
-div.logo > img {
+aside > header > img {
 	height: 1.25lh;
 	width: auto;
 }
 
-div.credits {
-	margin: 1lh;
+aside > footer {
+	background-color: #010000;
+	/* margin: 1lh;*/
+	padding: 1lh;
 	font-size: 0.8rem;
 	text-align: center;
 }
 
-div.content {
+main {
 	background-color: #F9FAFB;
+	border-left: 2px #AAA solid;
 }
 
-div.content > * {
+main > * {
 	height: 100%;
 	padding: 40px;
 }
 
-div.content h2 {
+main h2 {
 	font-weight: normal;
 	font-size: calc(1.5rem + 0.333vw);
 	text-wrap: balance;
 }
 
-div.flavor {
+main > header {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 }
 
-div.flavor > :first-child {
+main > header > :first-child {
 	margin-bottom: 1.5lh;
 }
 
-div.content > form {
+main > form {
 	display: flex;
 	height: 100%;
 	flex-direction: column;
@@ -102,7 +112,7 @@ div.content > form {
 }
 
 
-div.content > form label {
+main > form label {
 	display: block;
 	font-family: sans-serif;
 	font-size: 0.9rem;
@@ -110,7 +120,7 @@ div.content > form label {
 	text-transform: uppercase;
 }
 
-div.content > form input {
+main > form input {
 	display: block;
 	width: 20vw;
 	padding: 8px;
@@ -118,7 +128,7 @@ div.content > form input {
 	border-radius: 5px;
 }
 
-section.row {
+div.row {
 	height: 100%;
 	width: 80%;
 	display: flex;
@@ -127,7 +137,7 @@ section.row {
 	gap: 40px;
 }
 
-div.submit > button {
+main > footer > button {
 	color: #FFF;
 	background-color: #596D48;
 
@@ -141,7 +151,7 @@ div.submit > button {
 	font-weight: 900;
 }
 
-div.submit > p {
+main > footer > p {
 	font-size: 1.25rem;
 	margin-top: 1.5rem;
 }
