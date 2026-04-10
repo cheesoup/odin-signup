@@ -3,10 +3,41 @@
 	src: url("webfont/Norsebold.woff2"); /* url of the font */
 }
 
+@font-face {
+	font-family: "Source Serif";
+	src: url("webfont/SourceSerif4-Regular.otf.woff2");
+}
+
+@font-face {
+	font-family: "Source Serif";
+	src: url("webfont/SourceSerif4-It.otf.woff2");
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Source Sans";
+	src: url("webfont/SourceSans3-Regular.otf.woff2");
+}
+
+@font-face {
+	font-family: "Source Sans";
+	src: url("webfont/SourceSans3-Bold.otf.woff2");
+	font-weight: 600;
+}
+
 :root {
-	--splash-width: 20vw;
+	--sans-family: "Source Sans", "Helvetica", "Verdana", sans-serif;
+	--serif-family: "Source Serif", "Times New Roman", serif;
+	--splash-width: 22vw;
+
+	--grey0: #F9FAFB;
+	--grey1: #AAA;
+	--grey2: #010000;
+	--red: #F00;
+	--green: #596D48;
+
 	font-size: 16px;
-	font-family: serif;
+	font-family: var(--serif-family);
 	box-sizing: border-box;
 }
 
@@ -39,41 +70,41 @@ body > * {
 }
 
 aside {
+	--elm-color: var(--grey2);
+
 	flex: 0 0 auto;
 	width: var(--splash-width);
 	color: #FFF;
 }
 
 aside > header {
-	width: 100%;
-	padding: 40px 0;
+	padding: 40px;
 	margin: 7vh 0;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	background-color: #010000;
+	background-color: var(--elm-color);
 	font-family: "Norse Bold";
 	font-size: calc(1.5rem + 2vw);
 }
 
-aside > header > img {
-	height: 1.25lh;
-	width: auto;
-}
-
 aside > footer {
-	background-color: #010000;
-	/* margin: 1lh;*/
+	background-color: var(--elm-color);
 	padding: 1lh;
 	font-size: 0.8rem;
 	text-align: center;
 }
 
+aside img {
+	height: 1.25lh;
+	width: auto;
+}
+
 main {
-	background-color: #F9FAFB;
-	border-left: 2px #AAA solid;
+	background-color: var(--grey0);
+	border-left: 2px var(--grey1) solid;
 }
 
 main > * {
@@ -97,66 +128,88 @@ main > header > :first-child {
 	margin-bottom: 1.5lh;
 }
 
-main > form {
-	height: 100%;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	box-shadow: 0 5px 5px #AAA;
-	background-color: #FFF;
-}
-
-
-main > form label {
-	display: block;
-	font-family: sans-serif;
-	font-size: 0.9rem;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-}
-
-main > form input {
-	display: block;
-	width: 20vw;
-	padding: 8px;
-	border: 1px solid #CCC;
-	border-radius: 5px;
-}
-
-main > form input:user-valid {
-	border: 1px #080 solid;
-}
-
-main > form input:user-invalid {
-	border: 1px #F00 solid;
-}
-
-main > form > div {
-	height: 100%;
-	width: 80%;
-
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 40px;
+main > footer {
+	--button-color: #FFF;
+	--button-bg: var(--green);
 }
 
 main > footer > button {
-	color: #FFF;
-	background-color: #596D48;
+	color: var(--button-color);
+	background-color: var(--button-bg);
 
 	padding: 15px 40px;
-	border: 0;
+	border: 2px var(--button-bg) solid;
 	border-radius: 5%/20%;
 
-	font-family: sans-serif;
+	font-family: var(--sans-family);
 	font-size: calc(1.25rem);
 	font-weight: 900;
+}
+
+main > footer > button:hover {
+	color: var(--button-bg);
+	background-color: var(--button-color);
 }
 
 main > footer > p {
 	font-size: 1.25rem;
 	margin-top: 1.5rem;
+}
+
+form, form div {
+	display: flex;
+}
+
+form {
+	height: 100%;
+
+	flex-direction: column;
+	justify-content: space-between;
+
+	box-shadow: 0 5px 5px var(--grey1);
+	background-color: #FFF;
+}
+
+form > div {
+	height: 100%;
+	width: 80%;
+
+	justify-content: flex-start;
+	align-items: center;
+	gap: 40px;
+}
+
+form > div > div {
+	flex-direction: column;
+}
+
+form label, form input {
+	display: block;
+}
+
+form label {
+	font-family: var(--sans-family);
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	order: -1;
+}
+
+form input {
+	width: 20vw;
+	padding: 8px;
+	border: 1px solid var(--grey1);
+	border-radius: 5px;
+}
+
+form input:user-valid {
+	border: 1px var(--green) solid;
+}
+
+form input:user-invalid {
+	border: 1px var(--red) solid;
+}
+
+form input:user-invalid + label {
+	color: var(--red);
 }
